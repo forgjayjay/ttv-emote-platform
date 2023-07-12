@@ -1,30 +1,30 @@
 import './css/main-page.css';
 
-function mainPage() {
+function emotePage() {
   return (
-    <div class="flex align-center justify-center bg-zinc-200 p-12 text-black">
-      <div class="h-[80vh] w-[80vw] bg-zinc-100 grid grid-cols-6">
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
-        <div class="h-[60%] w-[60%] bg-slate-800 flex align-items justify-center m-auto">hi</div>
+    //bg-zinc-200 bg-zinc-100
+    <div class="flex align-center justify-center p-12 text-white">
+      <div class="h-[80vh] w-[95vw]  grid grid-cols-10 grid-rows-4">
+        {populateContainer()}
       </div>
     </div>
     );
 }
 
-export default mainPage;
+function populateContainer() {
+  let emoteContainerArray = [];
+  
+  for (let index = 0; index < 40; index++) {
+    emoteContainerArray.push(emoteContainer());
+  }
+
+  return emoteContainerArray;
+}
+
+function emoteContainer() {
+  return(
+    <div class="h-[150px] w-[150px] bg-zinc-900 flex align-items justify-center m-auto border border-cyan-800 hover:border-slate-400">hi</div>
+  );
+} 
+
+export default emotePage;

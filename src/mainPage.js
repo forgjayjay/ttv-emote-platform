@@ -17,12 +17,16 @@ function mainPage() {
   );
 }
 
+
+
+//TODO
+//Remake links as buttons
 function navBar() {
   return(
-    <div className='bg-zinc-900 w-screen h-[10%] flex align-items justify-center p-4'>  
-        <ul class="bg-white h-full text-center text-black m-1 flex decoration-2">
-          <li class="m-4"><a href="/">home</a></li>
-          <li class="m-4"><a href="/emotes">emotes</a></li>
+    <div className='bg-zinc-900 w-screen h-[10%] flex align-items justify-center'>  
+        <ul class="h-full text-center text-white flex align-items justify-center text-xl align-middle">
+          <li class=" hover:bg-zinc-800 h-full w-[7rem] uppercase font-bold"><a class="m-4 h-full w-[6rem]" href="/">home</a></li>
+          <li class=" hover:bg-zinc-800 h-full w-[7rem] uppercase font-bold"><a class="m-4 h-full w-[6rem]" href="/emotes">emotes</a></li>
         </ul>
       </div>
   );
