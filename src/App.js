@@ -1,35 +1,20 @@
-// In App.js in a new project
+import EmotesPage from './emotesPage';
+import MainPage from './mainPage';
+import NavBar from './navbar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import * as React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-function HomeScreen() {
+function App() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
+    <div className='bg-zinc-800 h-screen w-screen text-white'>
+      <NavBar />
+      <BrowserRouter>       
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>       
+          <Route path="/emotes" element={<EmotesPage />}></Route>       
+        </Routes>     
+      </BrowserRouter>
+    </div>
   );
 }
-function DetailsScreen() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-      </View>
-    );
-  }
-  
-  const Stack = createNativeStackNavigator();
-  
-  function App() {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
+
 export default App;
