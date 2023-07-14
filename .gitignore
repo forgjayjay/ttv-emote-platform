@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/src/testing_stuff
 /.pnp
 .pnp.js
 

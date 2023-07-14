@@ -1,4 +1,6 @@
-import './css/main-page.css';
+import '../css/main.css';
+import Emote from './emote';
+import rawEmote from "../testing_stuff/muniFlower.png";
 
 function emotesPage() {
   return (
@@ -23,8 +25,11 @@ function populateContainer() {
 
 function emoteContainer() {
   return(
-    <div class="h-[150px] w-[150px] bg-zinc-900 flex items-center justify-center m-auto border border-cyan-800 hover:border-slate-400">hi</div>
+    <div class="h-[150px] w-[150px] bg-zinc-900 flex flex-wrap items-center justify-center m-auto border border-cyan-800 hover:border-slate-400">
+            <img class="object-cover" src={rawEmote} alt="muniFlower" />
+            <p>muniFlower</p> 
+    </div>
   );
-} 
+}
 
 export default emotesPage;
