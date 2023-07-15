@@ -1,12 +1,15 @@
-import rawEmote from "../testing_stuff/muniFlower.png";
+function Emote({emote}) {
+    const images = require.context('../emotes_folder/', true);
+    let image = images("./"+emote.name+".png");
 
-function emote() {
+    
+
     return(
-        <div className='m-auto flex align-items justify-center'>  
-            <img class="object-cover" src={rawEmote} alt="muniFlower" />;
-            <p>muniFlower</p>
+        <div className='flex flex-wrap items-center justify-center m-auto h-full w-full'>  
+            <img class="object-cover" src={image} alt={emote.name} />
+            <p>{emote.name}</p>
         </div>
     );
 }
 
-export default emote;   
+export default Emote;   
