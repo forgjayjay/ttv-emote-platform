@@ -1,6 +1,7 @@
-import EmotesPage from './emotesPage';
-import MainPage from './mainPage';
-import NavBar from './navbar';
+import MainPage from './pages/mainPage';
+import EmotesPage from './pages/emotesPage';
+import EmoteAddPage from './pages/emoteAddPage';
+import NavBar from './model/navbar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       <BrowserRouter>       
         <Routes>
           <Route path="/" element={<MainPage />}></Route>       
-          <Route path="/emotes" element={<EmotesPage />}></Route>       
+          <Route path="/emotes" element={<EmotesPage />}></Route>    
+          <Route path="/add-emote" element={<EmoteAddPage />}></Route>    
         </Routes>     
       </BrowserRouter>
     </div>

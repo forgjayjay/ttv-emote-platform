@@ -2,11 +2,10 @@ import '../css/main.css';
 
 function mainPage() {
   return (
-    //<div className='bg-zinc-800 h-screen w-screen text-white'>      
-    <div />
+    <div className=''>      
+        <p>lmao hi</p>
+    </div>
   );
 }
-
-
 
 export default mainPage;
