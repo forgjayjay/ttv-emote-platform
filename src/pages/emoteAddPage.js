@@ -23,8 +23,8 @@ function EmoteAddPage() {
     }
   
     const formData = new FormData();
-    formData.append('image', selectedFile);
     formData.append('image-name', imageName);
+    formData.append('image', selectedFile);
     console.log(formData);
   
     try {
