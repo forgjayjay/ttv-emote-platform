@@ -11,6 +11,7 @@
 
 # production
 /build
+reminders.txt
 
 # misc
 .DS_Store

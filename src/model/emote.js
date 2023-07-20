@@ -1,5 +1,5 @@
 function Emote({emote}) {
-    const images = require.context('../emotes_folder/', true);
+    const images = require.context('../uploads/', true);
     let image = images("./"+emote.name+".png");
 
     
