@@ -1,5 +1,5 @@
 import '../css/main.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function EmoteAddPage() {
@@ -7,9 +7,26 @@ function EmoteAddPage() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageName, setImageName] = useState('');
 
-  const handleFileChange = (event) => {
+  useEffect(() => {
+    if (!selectedFile) {
+        setImageUrl(undefined)
+        return
+    }
+    const objectUrl = URL.createObjectURL(selectedFile)
+    setImageUrl(objectUrl)
+    return () => URL.revokeObjectURL(objectUrl)
+}, [selectedFile])
+
+  const handleFileChange = async (event) => {
     setSelectedFile(event.target.files[0]);
   };
+
+  useEffect(() => {
+    if(selectedFile==null) return;
+    setImageUrl(URL.createObjectURL(selectedFile));
+    console.log(imageUrl);
+
+  }, selectedFile);
 
   const handleImageNameChange = (event) => {
     setImageName(event.target.value);
@@ -40,19 +57,26 @@ function EmoteAddPage() {
   
       const data = await response.json();
       console.log({ data });
-      setImageUrl(data.imageUrl);
     } catch (error) {
       console.error(error);
     }
   };
-  
 
-  return (
-    <div>
-      <input type="file" onChange={handleFileChange} />
-      <input className='text-black' type="text" value={imageName} onChange={handleImageNameChange} placeholder="Custom Image Name" />
-      <button onClick={handleUploadClick}>Upload</button>
-      {imageUrl}
+return (
+    <div className='flex w-full h-[93%] block border border-cyan-800 items-center p-[1rem] flex-col gap-[1rem]'>
+      <div className='w-[30rem] h-[30rem] block border border-cyan-400 p-[1rem] '>
+        <label 
+          style={{'--image-url': `url(${imageUrl})`}} 
+          className='w-full h-full block border border-cyan-400 bg-[image:var(--image-url)] bg-cover' for='image-upload'
+        ></label>
+        <input id='image-upload' accept="image/*" className='hidden' type="file" onChange={handleFileChange} />
+      </div>
+      <div className='block border border-cyan-400'>
+        <input className='text-black w-[20rem] h-[1.5rem]' type="text" value={imageName} onChange={handleImageNameChange} placeholder="Custom Image Name" />
+      </div>      
+      <div className='block border border-cyan-400 w-[100%] h-[7%] place-self-end'>
+        <button className='w-full h-full' onClick={handleUploadClick}>Upload</button>
+      </div>
     </div>
   );
 }
